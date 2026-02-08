@@ -1,107 +1,111 @@
-# 🦸 Superhero Database
+### 🦸 Superhero Database
 
-A web application for managing superheroes — create, edit, delete, and view superheroes with images.
+A web application to manage superheroes — create, edit, delete, and view superheroes with images.
+Built with React (frontend), Node.js + Express (backend), and PostgreSQL with Prisma ORM.
 
-Built with **React** on the frontend, **Node.js + Express** on the backend, and **PostgreSQL** for data storage using **Prisma ORM**.
+###  🎯 Features
 
----
+CRUD operations for superheroes:
+- Create new superhero
+- Edit existing superhero
+- Delete superhero
+- View superhero details
+- Upload multiple images per superhero
+- Pagination: 5 superheroes per page
+- Responsive & user-friendly UI
 
-## 🎯 Features
+### 🛠 Tech Stack
 
-- CRUD operations for superheroes:
-  - Create new superhero
-  - Edit existing superhero
-  - Delete superhero
-  - View details of a superhero
-- Upload multiple images for each superhero
-- Pagination: display 5 superheroes per page
-- Responsive and user-friendly UI
+1. Frontend: React, SCSS, React Router v7
+2. Backend: Node.js, Express.js, Prisma
+3. Database: PostgreSQL
+4. File Upload: Multer
+5. Version Control: Git
 
----
+###  ⚡ Installation
+1️⃣ Clone the repository
+- git clone https://github.com/viktoriamyhailiak/superhero.git
+- cd superhero
 
-## 🛠 Tech Stack
+2️⃣ Backend Setup
+- cd backend
+- npm install
 
-- **Frontend:** React, SCSS, React Router v7  
-- **Backend:** Node.js, Express.js, Prisma  
-- **Database:** PostgreSQL  
-- **File Upload:** Multer  
-- **Version Control:** Git  
+Create PostgreSQL Database:
+- Open PostgreSQL CLI or pgAdmin: CREATE DATABASE superheroes;
 
----
-
-## ⚡ Installation
-
-### 1️⃣ Clone the repository
-
-```bash
-git clone https://github.com/viktoriamyhailiak/superhero.git
-cd superhero
-###  2️⃣ Backend setup
-cd backend
-npm install
 Create a .env file:
-
 DATABASE_URL="postgresql://postgres:1234@localhost:5432/superheroes"
 PORT=3001
+
 Run Prisma migrations:
+- npx prisma migrate dev --name init
+- npx prisma generate
 
-npx prisma migrate dev --name init
-npx prisma generate
 Start backend server:
+- npm run dev
 
-npm run dev
 Backend API will be available at: http://localhost:3001/
 
-### 3️⃣ Frontend setup
-cd ../frontend
-npm install
-npm run dev
+3️⃣ Frontend Setup
+- cd ../frontend
+- npm install
+- npm run dev
+
 Frontend will be available at: http://localhost:5173/
 
-###  📝 API Endpoints
-Method	Endpoint	Description
-GET	/superheroes	List superheroes (with pagination)
-GET	/superheroes/:id	Get superhero details
-POST	/superheroes	Create a new superhero
-PUT	/superheroes/:id	Update a superhero
-DELETE	/superheroes/:id	Delete a superhero
-POST	/superheroes/:id/images	Upload images for a superhero
+### 📝 API Endpoints
+Method	Endpoint	Description: 
+1. GET	/superheroes	List superheroes (with pagination)
+2. GET	/superheroes/:id	Get superhero details
+3. POST	/superheroes	Create a new superhero
+4. PUT	/superheroes/:id	Update a superhero
+5. DELETE	/superheroes/:id	Delete a superhero
+6. POST	/superheroes/:id/images	Upload images for a superhero
+
 ###  💻 Frontend Routes
 Path	Component	Description
-/	SuperheroList	List all superheroes
-/superheroes/:id	SuperheroDetail	View superhero details
-/create	SuperheroForm	Create a new superhero
-/edit/:id	SuperheroForm	Edit existing superhero
-###  ⚙ Assumptions & Notes
-1. Database table names are lowercase in PostgreSQL for consistency (superhero, image)
-2. Frontend forms expect field names as per Prisma schema: nickname, realName, originDescription, superpowers, catchPhrase
-3. Multiple images can be uploaded per superhero (handled via Multer)
-4. Pagination shows 5 superheroes per page on the list view
-5. Backend runs on port 3001, frontend on 5173
-6. Error handling includes 404 for missing superheroes and 500 for server/database errors
-7. No authentication implemented (open CRUD operations)
+1. /	SuperheroList	List all superheroes
+2. /superheroes/:id	SuperheroDetail	View superhero details
+3. /create	SuperheroForm	Create a new superhero
+4. /edit/:id	SuperheroForm	Edit existing superhero
+
+### ⚙ Assumptions & Notes
+
+1. Database table names are lowercase (PostgreSQL): superhero, image
+2. Frontend forms match Prisma schema fields: nickname, realName, originDescription, superpowers, catchPhrase
+3. Multiple images can be uploaded per superhero (Multer handles this)
+4. Pagination shows 5 superheroes per page
+5. Backend: port 3001, Frontend: port 5173
+6. Error handling: 404 for missing superheroes, 500 for server/database errors
 
 ### 📦 Prisma & Database Notes
-Prisma Client is generated in node_modules/@prisma/client
+
+Prisma Client generated in node_modules/@prisma/client
+
 To reset database and apply migrations:
 
-npx prisma migrate reset --force
-npx prisma generate
+- npx prisma migrate reset --force
+- npx prisma generate
+
 Check tables in PostgreSQL:
 
 \dt
-SELECT * FROM superhero;
-SELECT * FROM image;
+- SELECT * FROM superhero;
+- SELECT * FROM image;
 
-###  🚀 Running the App
-Start the PostgreSQL server
+### 🚀 Running the App
+
+Start PostgreSQL server
 
 Run backend:
-cd backend
-npm run dev
+- cd backend
+- npm run dev
+
 
 Run frontend:
-cd frontend
-npm run dev
+- cd frontend
+- npm run dev
+
 
 Open in browser: http://localhost:5173/
