@@ -26,3 +26,6 @@ export const uploadImages = (id, files) => {
     })
     .then((res) => res.data);
 };
+
+export const deleteImage = (heroId, imageId) =>
+  axios.delete(`${API_URL}/${heroId}/images/${imageId}`).then((res) => res.data);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { deleteSuperhero, fetchSuperheroes } from "../api/superhero";
+import { fetchSuperheroes } from "../api/superhero";
 import styles from "../styles/SuperheroList.module.scss";
 
 const SuperheroList = () => {
@@ -25,21 +25,7 @@ const SuperheroList = () => {
     };
     loadHeroes();
   }, [page]);
-
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this superhero?")) return;
   
-    try {
-      await deleteSuperhero(id);
-      setSuperheroes((prev) => prev.filter((hero) => hero.id !== id));
-      alert("Superhero deleted successfully!");
-    } catch (error) {
-      console.error("Failed to delete superhero", error);
-      alert("Failed to delete superhero");
-    }
-  };
-  
-
   const handlePrev = () => setPage((p) => Math.max(p - 1, 1));
   const handleNext = () => setPage((p) => Math.min(p + 1, totalPages));
 
@@ -84,13 +70,6 @@ const SuperheroList = () => {
                       View Details
                     </button>
                   </Link>
-
-                  <button
-                    className={styles["superhero-list__delete-button"]}
-                    onClick={() => handleDelete(hero.id)}
-                  >
-                    Delete
-                  </button>
                 </div>
               </div>
             </div>

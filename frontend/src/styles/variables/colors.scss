@@ -1,0 +1,25 @@
+$primary-color: #4f46e5;
+$primary-color-dark: #4338ca;
+$primary-color-light: lighten($primary-color, 10%);
+
+$secondary-color: #10b981;
+$secondary-color-dark: #059669;
+$secondary-color-light: lighten($secondary-color, 10%);
+
+$danger-color: #ef4444;
+$danger-color-dark: #dc2626;
+
+$white: #ffffff;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #e0e0e0;
+$gray-500: #9ca3af;
+$gray-600: #6b7280;
+$gray-700: #374151;
+$gray-800: #333;
+$card-shadow: rgba(0, 0, 0, 0.15);
+$card-shadow-light: rgba(0, 0, 0, 0.08);
+
+$font-family: "Poppins", sans-serif;

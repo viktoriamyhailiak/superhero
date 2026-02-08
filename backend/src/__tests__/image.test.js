@@ -1,9 +1,8 @@
-import prisma from '../utils/prisma.js';
 import * as imageService from '../services/image.service.js';
 import { deleteImage } from '../controllers/image.controller.js';
 
 jest.mock('../utils/prisma.js', () => ({
-  __esModule: true, // важливо для ESM
+  __esModule: true,
   default: {
     image: {
       findFirst: jest.fn(),
@@ -32,7 +31,7 @@ describe('Image Service & Controller', () => {
   afterAll(() => {
     consoleErrorSpy.mockRestore();
   });
-  
+
   beforeEach(() => {
     jest.clearAllMocks();
   });

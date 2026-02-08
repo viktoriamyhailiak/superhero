@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { fetchSuperheroById, deleteSuperhero } from "../api/superhero";
-import styles from "../styles/SuperheroDetail.scss";
+import styles from "../styles/SuperheroDetails.module.scss";
 
 const SuperheroDetail = () => {
   const { id } = useParams();
@@ -21,6 +21,7 @@ const SuperheroDetail = () => {
         setLoading(false);
       }
     };
+  
     loadHero();
   }, [id]);
 
@@ -30,7 +31,7 @@ const SuperheroDetail = () => {
     try {
       await deleteSuperhero(hero.id);
       alert("Superhero deleted successfully!");
-      navigate("/"); // редирект до списку після видалення
+      navigate("/");
     } catch (error) {
       console.error("Failed to delete superhero", error);
       alert("Failed to delete superhero");

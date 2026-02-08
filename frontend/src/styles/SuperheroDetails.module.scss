@@ -1,0 +1,138 @@
+@import "./variables/colors";
+
+.superhero-detail {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+  font-family: $font-family;
+  background-color: $gray-50;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px $card-shadow;
+
+  &__name {
+    margin: 0 0 30px 0;
+    text-align: center;
+    color: $primary-color;
+    font-size: 2.8rem;
+    font-weight: 700;
+  }
+
+  &__images-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 30px;
+
+    & img {
+      width: 100%;
+      max-width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid $gray-400;
+      box-shadow: 0 4px 12px $card-shadow-light;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 18px $card-shadow;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  &__info-item {
+    padding: 14px 18px;
+    background: $white;
+    border-radius: 10px;
+    border-left: 4px solid $primary-color;
+    box-shadow: 0 4px 10px $card-shadow-light;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  &__label {
+    font-weight: 700;
+    color: $primary-color-dark;
+    white-space: nowrap;
+  }
+
+  &__value {
+    color: $gray-700;
+    line-height: 1.6;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  button {
+    padding: 12px 26px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 140px;
+    font-size: 1rem;
+  }
+
+  &__edit-button {
+    background-color: $primary-color;
+    color: $white;
+
+    &:hover {
+      background-color: $primary-color-dark;
+    }
+  }
+
+  &__delete-button {
+    background-color: $danger-color;
+    color: $white;
+
+    &:hover {
+      background-color: $danger-color-dark;
+    }
+  }
+
+  &__back-button {
+    background-color: $secondary-color;
+    color: $white;
+
+    &:hover {
+      background-color: $secondary-color-dark;
+    }
+  }
+
+  &__placeholder {
+    text-align: center;
+    font-size: 1.3rem;
+    color: $gray-600;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    &__images-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    &__buttons {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

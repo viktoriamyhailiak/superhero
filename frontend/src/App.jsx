@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SuperheroList from './pages/SuperheroList';
-import SuperheroDetail from './pages/SyperheroDetails';
-import SuperheroForm from './pages/SyperheroForm';
+import SuperheroDetail from './pages/SuperheroDetails';
+import SuperheroForm from './pages/SuperheroForm';
 
 function App() {
   return (

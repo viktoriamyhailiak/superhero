@@ -1,8 +1,6 @@
-// src/__tests__/superhero.test.js
 import * as superheroController from '../controllers/superhero.controller.js';
 import * as superheroService from '../services/superhero.service.js';
 
-// Мокаємо сервіси правильно для ESM
 jest.mock('../services/superhero.service.js', () => {
   return {
     getSuperheroes: jest.fn(),
